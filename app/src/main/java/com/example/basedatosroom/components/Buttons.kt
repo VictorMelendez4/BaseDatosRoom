@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 
 @Composable
-fun MainButtons(tipo: ImageVector, icon: () -> Boolean){
+fun MainButtons(icon: ImageVector, tipo:Boolean,onClick: () -> Unit){
     OutlinedButton(
         onClick = { /*TODO*/ },
         enabled = true

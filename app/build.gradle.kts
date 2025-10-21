@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+
+    kotlin("kapt") //correcion de errores
+
 }
 
 android {
@@ -40,12 +43,29 @@ android {
 }
 
 dependencies {
-    implementation(libs.androidx.room.compiler)
+
     implementation(libs.androidx.navigation.compose)
     //Room
-    val room_version = "2.8.0"
+    val room_version = "2.8.2"
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
+
+    //Swipe
+    implementation("me.saket.swipe:swipe:1.1.1")
+
+    //Dagger core
+    implementation("com.google.dagger:dagger:2.46.1")
+    kapt("com.google.dagger:dagger-compiler:2.46.1")
+
+    //Dagger Android
+    api("com.google.dagger:dagger-android:2.46.1")
+    api("com.google.dagger:dagger-android-support:2.46.1")
+    kapt("com.google.dagger:dagger-android-processor:2.46.1")
+
+    //Dagger Hilt
+    implementation("com.google.dagger:hilt-android:2.46.1")
+    kapt("com.google.dagger:hilt-compiler:2.46.1")
+
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
     implementation("androidx.room:room-rxjava2:$room_version")
@@ -54,7 +74,7 @@ dependencies {
     testImplementation("androidx.room:room-testing:$room_version")
     implementation("androidx.room:room-paging:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
+
 
 
     implementation(libs.androidx.core.ktx)

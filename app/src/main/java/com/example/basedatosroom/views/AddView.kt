@@ -12,32 +12,34 @@ import com.example.basedatosroom.components.MainButtons
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.navigation.NavController
+import com.example.basedatosroom.components.MainScreen
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AddView(navController: NavController) {
+fun AddView(navController:NavController){
     Scaffold(
-        topBar = {
+        topBar={
             CenterAlignedTopAppBar(
                 title = { Text("Añadir Registro") },
-                colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
+                colors= TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary
+
                 ),
                 navigationIcon = {
-
-                    MainButtons(tipo = Icons.Default.ArrowBack) {
+                    MainButtons(icon = Icons.Default.ArrowBack,true){
                         navController.popBackStack()
                     }
                 }
             )
         }
-    ) { padding ->
-        ContentAddView(padding)
+    ){
+        ContentAddView(it)
     }
 }
 
-
 @Composable
 fun ContentAddView(it: PaddingValues){
+    MainScreen("",""
+        ,{})
 
 }

@@ -1,5 +1,7 @@
 package com.example.basedatosroom.components
 
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -34,6 +36,17 @@ fun MainScreen(valueName: String,valuePhone: String ,onValueChange: (String) -> 
                     .padding(horizontal = 30.dp)
                     .padding(bottom = 15.dp)
             )
+        }
+    }
+}
+
+@Composable
+fun Cards(titulo: String?, onClick:()-> Unit){
+    Box(modifier = Modifier.fillMaxWidth().padding(horizontal = 10.dp).clickable{onClick()}){
+        Column(modifier = Modifier.padding(15.dp)){
+            if(titulo != null){
+                Text()
+            }
         }
     }
 }

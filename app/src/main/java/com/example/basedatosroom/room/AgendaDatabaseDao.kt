@@ -7,16 +7,18 @@ import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
 import com.example.basedatosroom.model.Agenda
+import kotlinx.coroutines.flow.Flow
+
 //import com.example.roomdb.model.Agenda
 
 @Dao
 interface AgendaDatabaseDao {
     //CRUD
     @Query("Select * from agenda")
-    fun getAll(): List<Agenda>
+    fun getAll(): Flow<List<Agenda>>
 
     @Query("Select * from agenda where id = :id")
-    fun getById(id: Int): List<Agenda>
+    fun getById(id: String): Flow<List<Agenda>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun Insert(agenda: Agenda)
