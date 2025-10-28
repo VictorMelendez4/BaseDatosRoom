@@ -3,16 +3,16 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 
-    kotlin("kapt") //correcion de errores
-
+    kotlin ("kapt") //Correccion de errores
+    //id ("com.google.dagger.hilt.android")
 }
 
 android {
-    namespace = "com.example.basedatosroom"
+    namespace = "com.example.roomdb"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.basedatosroom"
+        applicationId = "com.example.roomdb"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
@@ -50,21 +50,22 @@ dependencies {
     implementation("androidx.room:room-runtime:$room_version")
     ksp("androidx.room:room-compiler:$room_version")
 
-    //Swipe
-    implementation("me.saket.swipe:swipe:1.1.1")
 
-    //Dagger core
-    implementation("com.google.dagger:dagger:2.46.1")
-    kapt("com.google.dagger:dagger-compiler:2.46.1")
+    // Swipe
+    implementation ("me.saket.swipe:swipe:1.1.1")
 
-    //Dagger Android
-    api("com.google.dagger:dagger-android:2.46.1")
-    api("com.google.dagger:dagger-android-support:2.46.1")
-    kapt("com.google.dagger:dagger-android-processor:2.46.1")
+    // Dagger Core
+    implementation ("com.google.dagger:dagger:2.46.1")
+    kapt ("com.google.dagger:dagger-compiler:2.46.1")
 
-    //Dagger Hilt
-    implementation("com.google.dagger:hilt-android:2.46.1")
-    kapt("com.google.dagger:hilt-compiler:2.46.1")
+// Dagger Android
+    api ("com.google.dagger:dagger-android:2.46.1")
+    api ("com.google.dagger:dagger-android-support:2.46.1")
+    kapt ("com.google.dagger:dagger-android-processor:2.46.1")
+
+    //  Dagger Hilt
+    implementation ("com.google.dagger:hilt-android:2.46.1")
+    kapt ("com.google.dagger:hilt-compiler:2.46.1")
 
     annotationProcessor("androidx.room:room-compiler:$room_version")
     implementation("androidx.room:room-ktx:$room_version")
